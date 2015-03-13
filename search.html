@@ -1,5 +1,6 @@
 <div class="container">
   <h1>Angular Movie App <small>{{searchTerm}}</small></h1>
+  <div class="row">
   <form class="form" ng-submit="search()">
     <div class="form-group">
       <label class="control-label"></label>
@@ -7,7 +8,9 @@
     </div>
     <input type="submit" class="btn btn-primary" name="Search">
   </form>
-
+  </div>
+  <div class="row gap"></div>
+  <div class="row">
   <table class="table table-hover" ng-show"movies.Search">
     <thead>
       <tr>
@@ -26,4 +29,5 @@
       </tr>
     </tbody>
   </table>
+  </div>
 </div>
