@@ -2,9 +2,9 @@
   <h1>Angular Movie App <small>{{searchTerm}}</small></h1>
   <div class="row">
   <form class="form" ng-submit="search()">
-    <div class="form-group">
-      <label class="control-label"></label>
-      <input type="text" class="form-control" ng-model="searchTerm" placeholder="Enter Movie Here" typeahead="search for search in searchTerms | filter:$viewValue | limitTo:8">
+    <div class="form-group" ng-class="{'has-error': movies.Error}">
+      <label class="control-label">{{movies.Error}}</label>
+      <input type="text" class="form-control" ng-model="searchTerm" typeahead="search for search in searchTerms | filter:$viewValue | limitTo:8">
     </div>
     <input type="submit" class="btn btn-primary" name="Search">
   </form>
@@ -24,7 +24,7 @@
       <tr ng-repeat="movie in movies.Search">
         <td>{{movie.Title}}</td>
         <td>{{movie.Year}}</td>
-        <td>{{movie.Type}}</td>
+        <td>{{movie.Type | uppercase}}</td>
         <td><a href="/#!/movies/{{movie.imdbID}}" class="label label-info">VIEW</a></td>
       </tr>
     </tbody>
