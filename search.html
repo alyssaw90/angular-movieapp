@@ -1,10 +1,29 @@
 <div class="container">
   <h1>Angular Movie App <small>{{searchTerm}}</small></h1>
-  <form class="form">
+  <form class="form" ng-submit="search()">
     <div class="form-group">
       <label class="control-label"></label>
       <input type="text" class="form-control" ng-model="searchTerm" placeholder="Enter Movie Here">
     </div>
     <input type="submit" class="btn btn-primary" name="Search">
   </form>
+
+  <table class="table table-hover" ng-show"movies.Search">
+    <thead>
+      <tr>
+        <th>Title</th>
+        <th>Year</th>
+        <th>Type</th>
+        <th>Details</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr ng-repeat="movie in movies.Search">
+        <td>{{movie.Title}}</td>
+        <td>{{movie.Year}}</td>
+        <td>{{movie.Type}}</td>
+        <td><a href="/#!/movies/{{moive.imdbID}}"></a>View</td>
+      </tr>
+    </tbody>
+  </table>
 </div>
