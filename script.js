@@ -46,11 +46,32 @@ moviesApp.controller('SearchController', ['$scope', '$http', function($scope,$ht
   }
 }]);
 
+moviesApp.controller('DetailsController', ['$scope','$http','$routeParams', function($scope,$http,$routeParams){
+
+  var req = {
+    url: 'http://www.omdbapi.com',
+    params: {
+      i: $routeParams.id
+    }
+  }
+
+  $http(req).success(function(data){
+    $scope.movies = data
+  });
+
+}]);
+
 moviesApp.config(['$routeProvider','$locationProvider', function($routeProvider,$locationProvider) {
   $routeProvider
     .when('/', {
       templateUrl: '/search.html',
       controller: 'SearchController'
     })
+    .when('/movies/:id', {
+      templateUrl: '/movie.html',
+      controller: 'DetailsController'
+    })
+
+    $locationProvider.hashPrefix('!');
 
 }]);
