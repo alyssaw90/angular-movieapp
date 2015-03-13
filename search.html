@@ -4,7 +4,7 @@
   <form class="form" ng-submit="search()">
     <div class="form-group">
       <label class="control-label"></label>
-      <input type="text" class="form-control" ng-model="searchTerm" placeholder="Enter Movie Here">
+      <input type="text" class="form-control" ng-model="searchTerm" placeholder="Enter Movie Here" typeahead="search for search in searchTerms | filter:$viewValue | limitTo:8">
     </div>
     <input type="submit" class="btn btn-primary" name="Search">
   </form>
@@ -25,7 +25,7 @@
         <td>{{movie.Title}}</td>
         <td>{{movie.Year}}</td>
         <td>{{movie.Type}}</td>
-        <td><a href="/#!/movies/{{moive.imdbID}}"></a>View</td>
+        <td><a href="/#!/movies/{{movie.imdbID}}">VIEW</a></td>
       </tr>
     </tbody>
   </table>
