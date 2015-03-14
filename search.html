@@ -6,6 +6,12 @@
       <label class="control-label">{{movies.Error}}</label>
       <input type="text" class="form-control" ng-model="searchTerm" typeahead="search for search in searchTerms | filter:$viewValue | limitTo:8">
     </div>
+
+    <div class="btn-group">
+      <label class="btn btn-success" ng-change="search()" ng-model="searchType" btn-radio="'movie'" uncheckable>Movie</label>
+      <label class="btn btn-success" ng-change="search()" ng-model="searchType" btn-radio="'series'" uncheckable>Series</label>
+      <label class="btn btn-success" ng-change="search()" ng-model="searchType" btn-radio="'episode'" uncheckable>Episode</label>
+    </div>
     <input type="submit" class="btn btn-primary" name="Search">
   </form>
   </div>
